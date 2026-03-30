@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Camera, ArrowRight } from 'lucide-react';
 import { useAuthStore, useDetectionStore } from '@/app/lib/store';
 import { useI18n } from '@/app/hooks/useI18n';
+import { usePrecachePages } from '@/app/hooks/usePrecachePages';
 import { CropCard } from '@/app/components/CropCard';
 import { DetectionHistoryCard } from '@/app/components/DetectionHistoryCard';
 import { SkeletonLoader } from '@/app/components/Loading';
@@ -23,6 +24,9 @@ export default function DashboardPage() {
   const detections = useDetectionStore((state) => state.detections);
   const removeDetection = useDetectionStore((state) => state.deleteDetection);
   const { t, isRTL } = useI18n();
+
+  // Précharger les pages pour offline après login
+  usePrecachePages();
 
   const [loading, setLoading] = useState(true);
   const [recentDetections, setRecentDetections] = useState([]);

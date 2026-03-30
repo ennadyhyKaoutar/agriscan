@@ -46,18 +46,27 @@ export default function RootLayout({ children }) {
           </main>
           <BottomNav />
         </Providers>
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('/service-worker.js');
-                });
-              }
-            `,
-          }}
-        />
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+            console.log('✅ Service Worker enregistré');
+            
+            if (registration.active) {
+              registration.active.postMessage({
+                type: 'CACHE_ALL'
+              });
+            }
+          }).catch((error) => {
+            console.error('❌ Erreur SW:', error);
+          });
+        });
+      }
+    `,
+  }}
+/>
       </body>
     </html>
   );
