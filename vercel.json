@@ -2,39 +2,5 @@
   "env": {
     "NEXT_PUBLIC_API_URL": "@next_public_api_url",
     "NEXT_PUBLIC_GOOGLE_MAPS_KEY": "@next_public_google_maps_key"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_API_URL": "@next_public_api_url"
-    }
-  },
-  "routes": [
-    {
-      "src": "/service-worker.js",
-      "dest": "/public/service-worker.js",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      }
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "/public/manifest.json",
-      "headers": {
-        "Content-Type": "application/manifest+json"
-      }
-    }
-  ],
-  "headers": [
-    {
-      "source": "/sw.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    }
-  ],
-  "framework": "nextjs",
-  "nodeVersion": "18.x"
+  }
 }
