@@ -5,7 +5,19 @@ const ASSETS_TO_CACHE = [
   '/manifest.json',
 ];
 
-// Installation du Service Worker
+// Liste de toutes les pages à précacher pour le offline complet
+const ALL_PAGES = [
+  '/',
+  '/auth',
+  '/dashboard',
+  '/detection',
+  '/history',
+  '/plants',
+  '/medicine',
+  '/profile',
+];
+
+// ===================== INSTALLATION =====================
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -15,7 +27,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Activation du Service Worker
+// ===================== ACTIVATION =====================
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -29,52 +41,40 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Stratégie de fetch
+// ===================== FETCH =====================
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
   // Skip non-GET requests
-  if (request.method !== 'GET') {
-    return;
-  }
+  if (request.method !== 'GET') return;
 
   // API requests - Network first, fallback to cache
   if (request.url.includes('/api/')) {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          if (!response || response.status !== 200 || response.type === 'error') {
-            return response;
-          }
+          if (!response || response.status !== 200 || response.type === 'error') return response;
           const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseToCache);
-          });
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, responseToCache));
           return response;
         })
-        .catch(() => {
-          return caches.match(request).then((response) => {
-            return response || new Response('Offline', { status: 503 });
-          });
-        })
+        .catch(() =>
+          caches.match(request).then((response) => response || new Response('Offline', { status: 503 }))
+        )
     );
     return;
   }
 
-  // Static assets - Cache first, fallback to network
+  // Static assets & pages - Cache first, fallback to network
   event.respondWith(
     caches.match(request).then((response) => {
       return (
         response ||
         fetch(request)
           .then((response) => {
-            if (!response || response.status !== 200 || response.type === 'error') {
-              return response;
-            }
+            if (!response || response.status !== 200 || response.type === 'error') return response;
             const responseToCache = response.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(request, responseToCache);
-            });
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, responseToCache));
             return response;
           })
           .catch(() => new Response('Offline', { status: 503 }))
@@ -83,32 +83,43 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Message handling pour la mise à jour
+// ===================== MESSAGES =====================
 self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
+  if (!event.data) return;
+
+  // Forcer le SW à s'activer immédiatement
+  if (event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
+  }
+
+  // Précharger toutes les pages après login
+  if (event.data.type === 'CACHE_ALL') {
+    caches.open(CACHE_NAME).then((cache) => {
+      cache.addAll(ALL_PAGES).catch((err) => console.error('Pre-cache failed:', err));
+    });
   }
 });
 
-// Notifications background sync
+// ===================== BACKGROUND SYNC =====================
 self.addEventListener('sync', (event) => {
   if (event.tag === 'sync-detections') {
     event.waitUntil(syncDetections());
   }
 });
 
+// ===================== FONCTION SYNC =====================
 async function syncDetections() {
   try {
-    const db = await openDB('agilics-db');
+    const db = await openDB('agilics-db'); // IndexedDB
     const tx = db.transaction('detections', 'readonly');
     const store = tx.objectStore('detections');
     const pendingDetections = await store.getAll();
 
     for (const detection of pendingDetections) {
       if (detection.pending) {
-        // Envoyer à l'API
         await fetch('/api/detections', {
           method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(detection),
         });
       }
