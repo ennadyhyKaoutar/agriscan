@@ -1,0 +1,141 @@
+{
+  "common": {
+    "appName": "أجيليكس",
+    "language": "اللغة",
+    "french": "Français",
+    "arabic": "العربية",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "back": "رجوع",
+    "logout": "تسجيل الخروج",
+    "online": "متصل",
+    "offline": "غير متصل"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "phone": "رقم الهاتف",
+    "region": "المنطقة",
+    "role": "الدور",
+    "farmer": "مزارع",
+    "agronomist": "مهندس زراعي",
+    "selectRole": "اختر دورك",
+    "selectRegion": "اختر منطقتك",
+    "cropTypes": "أنواع المحاصيل (اختياري)",
+    "noAccount": "ليس لديك حساب؟ اشترك الآن",
+    "hasAccount": "هل لديك حساب؟ تسجيل الدخول",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "loginSuccess": "تم تسجيل الدخول بنجاح",
+    "signupSuccess": "تم إنشاء الحساب بنجاح",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "passwordMismatch": "كلمات المرور غير متطابقة"
+  },
+  "home": {
+    "welcome": "مرحبا {{firstName}} 👋",
+    "mycrops": "محاصيلي",
+    "tomato": "طماطم",
+    "potato": "بطاطا",
+    "pepper": "فلفل",
+    "analyzePlant": "📷 تحليل النبات",
+    "recentDetections": "آخر 3 اكتشافات",
+    "noDetections": "لا توجد اكتشافات حتى الآن",
+    "viewAll": "عرض الجميع"
+  },
+  "detection": {
+    "title": "الكشف عن الأمراض",
+    "uploadPhoto": "تحميل صورة",
+    "takePhoto": "التقاط صورة",
+    "preview": "معاينة",
+    "analyze": "تحليل",
+    "analyzing": "جاري التحليل...",
+    "result": "النتيجة",
+    "disease": "المرض",
+    "confidence": "الثقة",
+    "severity": "الخطورة",
+    "treatment": "العلاج",
+    "prevention": "الوقاية",
+    "findMedicine": "🛒 البحث عن الدواء",
+    "save": "💾 حفظ",
+    "status": {
+      "healthy": "✅ صحي",
+      "uncertain": "⚠️ غير مؤكد",
+      "infected": "❌ مصاب"
+    },
+    "severity": {
+      "low": "منخفضة",
+      "medium": "متوسطة",
+      "high": "عالية",
+      "critical": "حرجة"
+    }
+  },
+  "history": {
+    "title": "السجل",
+    "filterByTomato": "طماطم",
+    "filterByPotato": "بطاطا",
+    "filterByPepper": "فلفل",
+    "filterAll": "الجميع",
+    "noPreviousDetections": "لا توجد اكتشافات سابقة"
+  },
+  "plants": {
+    "title": "متابعة النبات",
+    "healthy": "🟢 صحي",
+    "inTreatment": "🟡 تحت المعالجة",
+    "infected": "🔴 مصاب",
+    "addPlant": "إضافة نبات",
+    "plantName": "اسم النبات",
+    "cropType": "نوع المحصول",
+    "history": "السجل"
+  },
+  "medicine": {
+    "title": "البحث عن الأدوية",
+    "recommended": "المنتجات الموصى بها",
+    "nearbyStores": "المتاجر القريبة",
+    "noStores": "لم يتم العثور على متاجر قريبة",
+    "storeName": "اسم المتجر",
+    "address": "العنوان",
+    "phone": "الهاتف",
+    "distance": "المسافة",
+    "call": "اتصل",
+    "directions": "الاتجاهات"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "personalInfo": "المعلومات الشخصية",
+    "cropPreferences": "تفضيلات المحاصيل",
+    "settings": "الإعدادات",
+    "language": "اللغة",
+    "notifications": "الإخطارات",
+    "dataUsage": "استخدام البيانات",
+    "about": "حول",
+    "logout": "تسجيل الخروج",
+    "editProfile": "تحرير الملف الشخصي",
+    "updateSuccess": "تم تحديث الملف الشخصي بنجاح"
+  },
+  "regions": {
+    "tangier": "طنجة-تطوان-الحسيمة",
+    "fez": "فاس-مكناس",
+    "rabat": "الرباط-سلا-القنيطرة",
+    "casablanca": "الدار البيضاء-سطات",
+    "marrakech": "مراكش-الحوز",
+    "agadir": "سوس-ماسة",
+    "beni": "بني ملال-خنيفرة",
+    "draa": "درعة-تافيلالت",
+    "uis": "كويس",
+    "oujda": "وجدة-أنكاد"
+  },
+  "crops": {
+    "tomato": "طماطم",
+    "potato": "بطاطا",
+    "pepper": "فلفل"
+  }
+}

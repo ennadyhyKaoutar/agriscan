@@ -1,0 +1,141 @@
+{
+  "common": {
+    "appName": "AGILICS",
+    "language": "Langue",
+    "french": "Français",
+    "arabic": "العربية",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "back": "Retour",
+    "logout": "Déconnexion",
+    "online": "En ligne",
+    "offline": "Hors ligne"
+  },
+  "auth": {
+    "login": "Connexion",
+    "signup": "Inscription",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "phone": "Numéro de téléphone",
+    "region": "Région",
+    "role": "Rôle",
+    "farmer": "Agriculteur",
+    "agronomist": "Agronome",
+    "selectRole": "Sélectionnez votre rôle",
+    "selectRegion": "Sélectionnez votre région",
+    "cropTypes": "Types de cultures (optionnel)",
+    "noAccount": "Pas de compte? S'inscrire",
+    "hasAccount": "Vous avez un compte? Se connecter",
+    "forgotPassword": "Mot de passe oublié?",
+    "loginSuccess": "Connexion réussie",
+    "signupSuccess": "Inscription réussie",
+    "invalidCredentials": "Email ou mot de passe invalide",
+    "passwordMismatch": "Les mots de passe ne correspondent pas"
+  },
+  "home": {
+    "welcome": "Bonjour {{firstName}} 👋",
+    "mycrops": "Mes cultures",
+    "tomato": "Tomate",
+    "potato": "Pomme de terre",
+    "pepper": "Poivron",
+    "analyzePlant": "📷 Analyser ma plante",
+    "recentDetections": "3 dernières détections",
+    "noDetections": "Aucune détection pour le moment",
+    "viewAll": "Voir tout"
+  },
+  "detection": {
+    "title": "Détection de maladie",
+    "uploadPhoto": "Charger une photo",
+    "takePhoto": "Prendre une photo",
+    "preview": "Aperçu",
+    "analyze": "Analyser",
+    "analyzing": "Analyse en cours...",
+    "result": "Résultat",
+    "disease": "Maladie",
+    "confidence": "Confiance",
+    "severity": "Gravité",
+    "treatment": "Traitement",
+    "prevention": "Prévention",
+    "findMedicine": "🛒 Trouver médicament",
+    "save": "💾 Sauvegarder",
+    "status": {
+      "healthy": "✅ Sain",
+      "uncertain": "⚠️ Incertain",
+      "infected": "❌ Infecté"
+    },
+    "severity": {
+      "low": "Faible",
+      "medium": "Moyen",
+      "high": "Élevé",
+      "critical": "Critique"
+    }
+  },
+  "history": {
+    "title": "Historique",
+    "filterByTomato": "Tomate",
+    "filterByPotato": "Pomme de terre",
+    "filterByPepper": "Poivron",
+    "filterAll": "Toutes",
+    "noPreviousDetections": "Aucune détection antérieure"
+  },
+  "plants": {
+    "title": "Suivi des plantes",
+    "healthy": "🟢 Sain",
+    "inTreatment": "🟡 En traitement",
+    "infected": "🔴 Malade",
+    "addPlant": "Ajouter une plante",
+    "plantName": "Nom de la plante",
+    "cropType": "Type de culture",
+    "history": "Historique"
+  },
+  "medicine": {
+    "title": "Trouver médicaments",
+    "recommended": "Produits recommandés",
+    "nearbyStores": "Magasins à proximité",
+    "noStores": "Aucun magasin trouvé à proximité",
+    "storeName": "Nom du magasin",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "distance": "Distance",
+    "call": "Appeler",
+    "directions": "Itinéraire"
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": "Informations personnelles",
+    "cropPreferences": "Préférences de cultures",
+    "settings": "Paramètres",
+    "language": "Langue",
+    "notifications": "Notifications",
+    "dataUsage": "Utilisation des données",
+    "about": "À propos",
+    "logout": "Déconnexion",
+    "editProfile": "Modifier le profil",
+    "updateSuccess": "Profil mis à jour avec succès"
+  },
+  "regions": {
+    "tangier": "Tanger-Tétouan-Al Hoceïma",
+    "fez": "Fès-Meknès",
+    "rabat": "Rabat-Salé-Kénitra",
+    "casablanca": "Casablanca-Settat",
+    "marrakech": "Marrakech-Safi",
+    "agadir": "Souss-Massa",
+    "beni": "Béni Mellal-Khénifra",
+    "draa": "Drâa-Tafilalet",
+    "uis": "Uis",
+    "oujda": "Oujda-Angad"
+  },
+  "crops": {
+    "tomato": "Tomate",
+    "potato": "Pomme de terre",
+    "pepper": "Poivron"
+  }
+}
